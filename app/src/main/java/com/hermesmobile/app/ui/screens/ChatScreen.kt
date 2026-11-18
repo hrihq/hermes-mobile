@@ -17,7 +17,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.fillParentMaxSize
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -151,7 +150,7 @@ private fun Bubble(message: ChatMessage) {
 @Composable
 private fun EmptyChat(onNewChat: () -> Unit) {
     Box(
-        modifier = Modifier.fillParentMaxSize().padding(bottom = 60.dp),
+        modifier = Modifier.fillMaxWidth().height(360.dp),
         contentAlignment = Alignment.Center,
     ) {
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
