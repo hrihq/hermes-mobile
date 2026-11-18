@@ -39,12 +39,12 @@ class SettingsStore(ctx: Context) {
     var conversations: List<Conversation> by mutableStateOf(loadConversations())
         private set
 
-    fun setBaseUrl(v: String) { prefs.edit().putString("baseUrl", v).apply(); baseUrl = v }
-    fun setApiKey(v: String) { prefs.edit().putString("apiKey", v).apply(); apiKey = v }
-    fun setProfile(v: String) { prefs.edit().putString("profile", v).apply(); profile = v }
-    fun setStreaming(v: Boolean) { prefs.edit().putBoolean("streaming", v).apply(); streaming = v }
-    fun setDarkMode(v: Int) { prefs.edit().putInt("darkMode", v).apply(); darkMode = v }
-    fun setAccent(v: String) { prefs.edit().putString("accent", v).apply(); accent = v }
+    fun putBaseUrl(v: String) { prefs.edit().putString("baseUrl", v).apply(); baseUrl = v }
+    fun putApiKey(v: String) { prefs.edit().putString("apiKey", v).apply(); apiKey = v }
+    fun putProfile(v: String) { prefs.edit().putString("profile", v).apply(); profile = v }
+    fun putStreaming(v: Boolean) { prefs.edit().putBoolean("streaming", v).apply(); streaming = v }
+    fun putDarkMode(v: Int) { prefs.edit().putInt("darkMode", v).apply(); darkMode = v }
+    fun putAccent(v: String) { prefs.edit().putString("accent", v).apply(); accent = v }
     fun setActive(v: String) { prefs.edit().putString("activeId", v).apply(); activeId = v }
 
     fun loadConversations(): List<Conversation> {

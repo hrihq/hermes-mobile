@@ -50,7 +50,7 @@ fun SettingsScreen(vm: ChatVm) {
             Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
                 OutlinedTextField(
                     value = s.baseUrl,
-                    onValueChange = { s.setBaseUrl(it) },
+                    onValueChange = { s.putBaseUrl(it) },
                     label = { Text("Alamat server") },
                     placeholder = { Text("http://192.168.1.10:8642") },
                     singleLine = true,
@@ -58,7 +58,7 @@ fun SettingsScreen(vm: ChatVm) {
                 )
                 OutlinedTextField(
                     value = s.apiKey,
-                    onValueChange = { s.setApiKey(it) },
+                    onValueChange = { s.putApiKey(it) },
                     label = { Text("API key (API_SERVER_KEY)") },
                     singleLine = true,
                     visualTransformation = PasswordVisualTransformation(),
@@ -66,7 +66,7 @@ fun SettingsScreen(vm: ChatVm) {
                 )
                 OutlinedTextField(
                     value = s.profile,
-                    onValueChange = { s.setProfile(it) },
+                    onValueChange = { s.putProfile(it) },
                     label = { Text("Profil (opsional)") },
                     placeholder = { Text("kosong = profil utama") },
                     singleLine = true,
@@ -75,7 +75,7 @@ fun SettingsScreen(vm: ChatVm) {
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     Text("Streaming respons", style = MaterialTheme.typography.bodyMedium,
                         modifier = Modifier.weight(1f))
-                    Switch(checked = s.streaming, onCheckedChange = { s.setStreaming(it) })
+                    Switch(checked = s.streaming, onCheckedChange = { s.putStreaming(it) })
                 }
                 Button(onClick = { vm.testConnection { status = it } }, modifier = Modifier.fillMaxWidth()) {
                     Text("Uji koneksi")
@@ -101,16 +101,16 @@ fun SettingsScreen(vm: ChatVm) {
             Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
                 Text("Mode", style = MaterialTheme.typography.titleSmall)
                 Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                    FilterChip(selected = s.darkMode == 0, onClick = { s.setDarkMode(0) }, label = { Text("Sistem") })
-                    FilterChip(selected = s.darkMode == 1, onClick = { s.setDarkMode(1) }, label = { Text("Terang") })
-                    FilterChip(selected = s.darkMode == 2, onClick = { s.setDarkMode(2) }, label = { Text("Gelap") })
+                    FilterChip(selected = s.darkMode == 0, onClick = { s.putDarkMode(0) }, label = { Text("Sistem") })
+                    FilterChip(selected = s.darkMode == 1, onClick = { s.putDarkMode(1) }, label = { Text("Terang") })
+                    FilterChip(selected = s.darkMode == 2, onClick = { s.putDarkMode(2) }, label = { Text("Gelap") })
                 }
                 Text("Warna aksen", style = MaterialTheme.typography.titleSmall)
                 FlowRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                     Accent.entries.forEach { a ->
                         FilterChip(
                             selected = s.accent == a.name,
-                            onClick = { s.setAccent(a.name) },
+                            onClick = { s.putAccent(a.name) },
                             label = { Text(a.label) },
                         )
                     }
