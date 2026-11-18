@@ -1,0 +1,4 @@
+-keep class com.hermesmobile.app.** { *; }
+-dontwarn javax.annotation.**
+-dontwarn org.jetbrains.annotations.**
+-dontwarn kotlin.jvm.internal.**
